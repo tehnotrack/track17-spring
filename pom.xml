@@ -6,7 +6,7 @@
 
     <!-- Каждый проект под maven  имеет уникальный идентификатор-->
     <groupId>tehnotrack-mail</groupId>
-    <artifactId>messenger</artifactId>
+    <artifactId>Tehnotrack</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <!-- Настройки jvm и общие properties-->
