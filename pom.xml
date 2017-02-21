@@ -28,7 +28,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.4.0</version>
                 <configuration>
-                    <mainClass>track.lections.jdbc.JdbcExample</mainClass>
+                    <mainClass>main.lessons.lesson1.HelloWorld</mainClass>
                 </configuration>
             </plugin>
             <plugin>

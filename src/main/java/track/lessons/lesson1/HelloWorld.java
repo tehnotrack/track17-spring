@@ -1,4 +1,4 @@
-package main.lessons.lesson1;
+package lessons.lesson1;
 
 /**
  *
