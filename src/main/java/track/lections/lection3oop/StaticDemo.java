@@ -1,18 +1,14 @@
-package track.lections.lection3_oop;
+package track.lections.lection3oop;
 
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  *
  */
 public class StaticDemo {
 
-    private static Logger log = LoggerFactory.getLogger(StaticDemo.class);
 
     public static void main(String[] args) {
-        log.info("Account counter: " + Account.idCounter);
+        System.out.println("Account counter: " + Account.idCounter);
 
         int current = Account.idCounter;
         // Запрещено, id - это поле экземпляра, его нужно создать и инициализировать
@@ -20,7 +16,7 @@ public class StaticDemo {
 
         for (int i = 0; i < 5; i++) {
             Account acc = new Account();
-            log.info(acc.toString());
+            System.out.println(acc.toString());
         }
 
         Account acc = null;
@@ -58,8 +54,10 @@ class Account {
 }
 
 class ExtAccount extends Account {
+
+
     public static Account createAccount() {
         System.out.println("Ext Account created");
-        return new Account();
+        return new ExtAccount();
     }
 }

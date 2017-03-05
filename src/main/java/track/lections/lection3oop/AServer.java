@@ -1,4 +1,4 @@
-package track.lections.lection3_oop;
+package track.lections.lection3oop;
 
 /**
  * пример использования абстрактного класса, чье поведение определено не до конца
