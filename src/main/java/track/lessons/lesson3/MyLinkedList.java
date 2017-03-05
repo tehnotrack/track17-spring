@@ -11,7 +11,7 @@ public class MyLinkedList extends List {
     /**
      * private - используется для сокрытия этого класса от других.
      * Класс доступен только изнутри того, где он объявлен
-     *
+     * <p>
      * static - позволяет использовать Node без создания экземпляра внешнего класса
      */
     private static class Node {
@@ -37,7 +37,7 @@ public class MyLinkedList extends List {
 
     @Override
     int get(int idx) throws NoSuchElementException {
-       return 0;
+        return 0;
     }
 
     @Override
