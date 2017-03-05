@@ -3,6 +3,7 @@ package track.lessons.lesson3;
 import java.util.NoSuchElementException;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -10,6 +11,7 @@ import org.junit.Test;
  */
 public class MyLinkedListTest {
 
+    @Ignore
     @Test(expected = NoSuchElementException.class)
     public void emptyList() throws Exception {
         List list = new MyLinkedList();
@@ -17,7 +19,7 @@ public class MyLinkedListTest {
         list.get(0);
     }
 
-
+    @Ignore
     @Test
     public void listAdd() throws Exception {
         List list = new MyLinkedList();
@@ -26,7 +28,7 @@ public class MyLinkedListTest {
         Assert.assertTrue(list.size() == 1);
     }
 
-
+    @Ignore
     @Test
     public void listAddRemove() throws Exception {
         List list = new MyLinkedList();
@@ -50,6 +52,7 @@ public class MyLinkedListTest {
         Assert.assertTrue(list.size() == 0);
     }
 
+    @Ignore
     @Test
     public void listRemove() throws Exception {
         List list = new MyLinkedList();
