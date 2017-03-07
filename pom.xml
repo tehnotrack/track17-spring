@@ -28,7 +28,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.4.0</version>
                 <configuration>
-                    <mainClass>main.lessons.lesson1.HelloWorld</mainClass>
+                    <mainClass>track.lessons.lesson1.HelloWorld</mainClass>
                 </configuration>
             </plugin>
             <plugin>
