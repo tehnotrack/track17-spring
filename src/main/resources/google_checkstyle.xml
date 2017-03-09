@@ -178,5 +178,9 @@
             <message key="name.invalidPattern"
                      value="Method name ''{0}'' must match pattern ''{1}''."/>
         </module>
+
+        <module name="AvoidStarImport">
+            <property name="allowClassImports" value="true"/>
+        </module>
     </module>
 </module>
