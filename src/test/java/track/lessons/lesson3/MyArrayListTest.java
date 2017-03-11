@@ -8,18 +8,42 @@ import org.junit.Test;
 /**
  *
  */
-public class MyLinkedListTest {
+public class MyArrayListTest {
+
+    @Test
+    public void testResize1() {
+        MyArrayList list = new MyArrayList(0);
+        for (int i = 0; i < 1000; i++) {
+            list.add(i);
+        }
+
+        Assert.assertTrue(list.size() == 1000);
+    }
+
+    @Test
+    public void testResize2() {
+        MyArrayList list = new MyArrayList(0);
+        for (int i = 0; i < 100; i++) {
+            list.add(i);
+        }
+
+        for (int i = 0; i < 100; i++) {
+            list.remove(0);
+        }
+        Assert.assertTrue(list.size() == 0);
+
+    }
 
     @Test(expected = NoSuchElementException.class)
     public void emptyList() throws Exception {
-        List list = new MyLinkedList();
+        List list = new MyArrayList();
         Assert.assertTrue(list.size() == 0);
         list.get(0);
     }
 
     @Test
     public void listAdd() throws Exception {
-        List list = new MyLinkedList();
+        List list = new MyArrayList();
         list.add(1);
 
         Assert.assertTrue(list.size() == 1);
@@ -27,7 +51,7 @@ public class MyLinkedListTest {
 
     @Test
     public void listAddRemove() throws Exception {
-        List list = new MyLinkedList();
+        List list = new MyArrayList();
         list.add(1);
         list.add(2);
         list.add(3);
@@ -50,7 +74,7 @@ public class MyLinkedListTest {
 
     @Test
     public void listRemove() throws Exception {
-        List list = new MyLinkedList();
+        List list = new MyArrayList();
         list.add(1);
         list.remove(0);
 
