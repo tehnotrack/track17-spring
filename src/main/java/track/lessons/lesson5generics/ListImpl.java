@@ -54,10 +54,6 @@ public class ListImpl implements Iterable<Integer> {
         list.add(2);
         list.add(3);
 
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
-        }
-
         printAll(list);
 
     }
@@ -73,18 +69,33 @@ public class ListImpl implements Iterable<Integer> {
         return new Iter();
     }
 
-    class Iter implements Iterator<Integer> {
+    private class Iter implements Iterator<Integer> {
+        private int curPos;
 
         @Override
         public boolean hasNext() {
-            return false;
+            return curPos < size;
         }
 
         @Override
         public Integer next() {
-            return null;
+            return get(curPos++);
         }
     }
+
+//    class Iter implements Iterator<Integer> {
+//        int curPos = 0;
+//
+//        @Override
+//        public boolean hasNext() {
+//            return curPos < size;
+//        }
+//
+//        @Override
+//        public Integer next() {
+//            return get(curPos++);
+//        }
+//    }
 
 
 }

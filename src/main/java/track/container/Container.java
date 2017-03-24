@@ -1,6 +1,8 @@
 package track.container;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import track.container.config.Bean;
 
@@ -10,9 +12,14 @@ import track.container.config.Bean;
  */
 public class Container {
 
+    Map<String, Object> map = new HashMap<>();
 
     // Реализуйте этот конструктор, используется в тестах!
-    public Container(List<Bean> beans) {
+    public Container(List<Bean> beans) throws Exception {
+
+    }
+
+    public static void main(String[] args) throws Exception {
 
     }
 
