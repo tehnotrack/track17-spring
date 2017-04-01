@@ -1,6 +1,5 @@
 package track.lessons.l7threads.future;
 
-import java.awt.Image;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
