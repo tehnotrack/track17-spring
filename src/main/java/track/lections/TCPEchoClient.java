@@ -1,4 +1,4 @@
-package com.company;
+package track.lections;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.net.SocketException;
 
-public class TCPEchoClient {
+public class TcpEchoClient {
     public static void main(String[] args) throws IOException {
         if (args.length < 2 || args.length > 3) {
             throw new IllegalArgumentException("Parameters: <Server> <word> [<Port>]");
@@ -28,7 +28,7 @@ public class TCPEchoClient {
         int totalBytesRcvd = 0;
         int bytesRcvd;
 
-        while(totalBytesRcvd < data.length) {
+        while (totalBytesRcvd < data.length) {
             if ((bytesRcvd = in.read(data, totalBytesRcvd, data.length - totalBytesRcvd)) == -1)
                 throw new SocketException("Connection closed prematurely");
             totalBytesRcvd += bytesRcvd;

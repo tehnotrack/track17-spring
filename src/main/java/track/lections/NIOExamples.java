@@ -1,18 +1,18 @@
-package com.company;
+package track.lections;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
-public class NIOExamples {
+public class NioExamples {
     public static void main(String[] args) {
 
     }
 
-    public void BasicChannel() throws IOException {
-        RandomAccessFile aFile = new RandomAccessFile("data/nio-data.txt", "rw");
-        FileChannel inChannel = aFile.getChannel();
+    public void basicChannel() throws IOException {
+        RandomAccessFile file = new RandomAccessFile("data/nio-data.txt", "rw");
+        FileChannel inChannel = file.getChannel();
 
         ByteBuffer buf = ByteBuffer.allocate(48);
 
@@ -22,19 +22,19 @@ public class NIOExamples {
             System.out.println("Read " + bytesRead);
             buf.flip();
 
-            while(buf.hasRemaining()){
+            while (buf.hasRemaining()){
                 System.out.print((char) buf.get());
             }
 
             buf.clear();
             bytesRead = inChannel.read(buf);
         }
-        aFile.close();
+        file.close();
     }
 
-    public void BasicBufferUsage() throws IOException {
-        RandomAccessFile aFile = new RandomAccessFile("data/nio-data.txt", "rw");
-        FileChannel inChannel = aFile.getChannel();
+    public void basicBufferUsage() throws IOException {
+        RandomAccessFile file = new RandomAccessFile("data/nio-data.txt", "rw");
+        FileChannel inChannel = file.getChannel();
 
 //create buffer with capacity of 48 bytes
         ByteBuffer buf = ByteBuffer.allocate(48);
@@ -44,13 +44,13 @@ public class NIOExamples {
 
             buf.flip();  //make buffer ready for read
 
-            while(buf.hasRemaining()){
+            while (buf.hasRemaining()){
                 System.out.print((char) buf.get()); // read 1 byte at a time
             }
 
             buf.clear(); //make buffer ready for writing
             bytesRead = inChannel.read(buf);
         }
-        aFile.close();
+        file.close();
     }
 }
