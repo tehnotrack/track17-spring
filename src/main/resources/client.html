@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type='text/javascript'>
+
+        function init() {
+            var xmlHTTP = new XMLHttpRequest();
+            xmlHTTP.open('GET', 'http://localhost:8080/rest/getPhoto', true);
+            // Must include this line - specifies the response type we want
+            xmlHTTP.responseType = 'arraybuffer';
+            xmlHTTP.onload = function (e) {
+                console.log("onload: " + this.response);
+                var arr = new Uint8Array(this.response);
+                var raw = String.fromCharCode.apply(null, arr);
+                var b64 = btoa(raw);
+                var dataURL = "data:image/jpeg;base64," + b64;
+                document.getElementById("image").src = dataURL;
+            };
+            xmlHTTP.send();
+        }
+    </script>
+</head>
+<body onload='init()'>
+<img id="image" alt="data url loaded image"/>
+</body>
+</html>

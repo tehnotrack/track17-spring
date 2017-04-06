@@ -29,8 +29,9 @@ public class TcpEchoClient {
         int bytesRcvd;
 
         while (totalBytesRcvd < data.length) {
-            if ((bytesRcvd = in.read(data, totalBytesRcvd, data.length - totalBytesRcvd)) == -1)
+            if ((bytesRcvd = in.read(data, totalBytesRcvd, data.length - totalBytesRcvd)) == -1) {
                 throw new SocketException("Connection closed prematurely");
+            }
             totalBytesRcvd += bytesRcvd;
         }
 

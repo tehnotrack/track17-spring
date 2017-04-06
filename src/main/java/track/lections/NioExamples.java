@@ -22,7 +22,7 @@ public class NioExamples {
             System.out.println("Read " + bytesRead);
             buf.flip();
 
-            while (buf.hasRemaining()){
+            while (buf.hasRemaining()) {
                 System.out.print((char) buf.get());
             }
 
@@ -44,7 +44,7 @@ public class NioExamples {
 
             buf.flip();  //make buffer ready for read
 
-            while (buf.hasRemaining()){
+            while (buf.hasRemaining()) {
                 System.out.print((char) buf.get()); // read 1 byte at a time
             }
 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 1) Пример конфигурации бина -->
+
+    <bean id="messageHandler" class="track.spring.server.MessageHandler"/>
+
+    <bean id="socketServer" class="track.spring.server.SocketServer" init-method="init">
+        <property name="handler" ref="messageHandler"/>
+        <property name="port" value="19000"/>
+        <property name="poolSize" value="20"/>
+    </bean>
+
+
+    <!-- 2) Отдельно вынесенные настройки -->
+
+    <!--<bean id="socketServer" class="track.spring.server.SocketServer" init-method="init">-->
+
+    <!--<property name="handler" ref="messageHandler"/>-->
+    <!--<property name="port" value="${port}"/>-->
+    <!--<property name="poolSize" value="${poolSize}"/>-->
+
+    <!--</bean>-->
+
+
+    <!--Файл с настройками -->
+    <context:property-placeholder location="classpath:app.properties"/>
+
+
+    <!-- 3) Annotation-based -->
+
+
+    <!--Автоматически сканировать в поисках @Component -->
+    <!--<context:component-scan base-package="track.spring.server" />-->
+
+</beans>
