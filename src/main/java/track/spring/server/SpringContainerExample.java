@@ -19,7 +19,7 @@ public class SpringContainerExample {
 
 
         // Бины можно получать по id и по class
-        SocketServer server = (SocketServer)context.getBean("socketServer");
+        SocketServer server = (SocketServer) context.getBean("socketServer");
 
 
         Thread serverThread = new Thread(server::start);

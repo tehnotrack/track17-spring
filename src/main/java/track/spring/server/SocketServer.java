@@ -8,39 +8,43 @@ import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+
 import javax.annotation.PostConstruct;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 /**
  *
  */
-//@Component
+@Component
 public class SocketServer {
     static Logger log = LoggerFactory.getLogger(SocketServer.class);
 
-    private int port;
-    private int poolSize;
-    private MessageHandler handler;
-
-//    @Value("${port}")
 //    private int port;
-//
-//    @Value("${poolSize}")
 //    private int poolSize;
-//
-//    @Autowired
 //    private MessageHandler handler;
+
+    @Value("${port}")
+    private int port;
+
+    @Value("${poolSize}")
+    private int poolSize;
+
+    @Autowired
+    private MessageHandler handler;
 
     private ExecutorService executor;
 
     private volatile boolean isRunning;
 
     public SocketServer() {
-        System.out.println("POST_CONSTRUCT");
-        System.out.println("Init server on port: " + port);
-        System.out.printf("PoolSize: " + poolSize + "\n");
+//        System.out.println("POST_CONSTRUCT");
+//        System.out.println("Init server on port: " + port);
+//        System.out.printf("PoolSize: " + poolSize + "\n");
 //        executor = Executors.newFixedThreadPool(poolSize);
     }
 

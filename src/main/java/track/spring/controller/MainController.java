@@ -26,6 +26,8 @@ import org.springframework.web.servlet.ModelAndView;
  * сервлетов по @RequestMapping
  *
  *
+ *  $mvn jetty:run
+ *
  */
 @Controller
 public class MainController {
@@ -33,12 +35,14 @@ public class MainController {
     @RequestMapping(value = "/getPage", method = RequestMethod.GET)
     public ModelAndView getPage() {
         ModelAndView model = new ModelAndView("HelloWorldPage");
+
         model.addObject("msg", "Список пользователей");
 
         List<User> users = new ArrayList<>();
         users.add(new User("Иван", 21));
         users.add(new User("Саша", 22));
         users.add(new User("Оля", 20));
+
         model.addObject("allUsers", users);
 
         return model;

@@ -1,6 +1,7 @@
 package track.util;
 
 import java.io.BufferedReader;
+import java.io.Closeable;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
@@ -46,5 +47,16 @@ public class Util {
             tmp = (char) ('a' + tmp - 'z' - 1);
         }
         return tmp;
+    }
+
+
+    public static void closeQuietly(AutoCloseable... resources) {
+        for (AutoCloseable closeable : resources) {
+            try {
+                closeable.close();
+            } catch (Exception e) {
+                // ignore
+            }
+        }
     }
 }

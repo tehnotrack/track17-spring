@@ -6,23 +6,21 @@
 
     <!-- 1) Пример конфигурации бина -->
 
-    <bean id="messageHandler" class="track.spring.server.MessageHandler"/>
+    <!--<bean id="messageHandler" class="track.spring.server.MessageHandler"/>-->
 
-    <bean id="socketServer" class="track.spring.server.SocketServer" init-method="init">
-        <property name="handler" ref="messageHandler"/>
-        <property name="port" value="19000"/>
-        <property name="poolSize" value="20"/>
-    </bean>
+    <!--<bean id="socketServer" class="track.spring.server.SocketServer" init-method="init">-->
+        <!--<property name="handler" ref="messageHandler"/>-->
+        <!--<property name="port" value="19000"/>-->
+        <!--<property name="poolSize" value="20"/>-->
+    <!--</bean>-->
 
 
     <!-- 2) Отдельно вынесенные настройки -->
 
-    <!--<bean id="socketServer" class="track.spring.server.SocketServer" init-method="init">-->
-
-    <!--<property name="handler" ref="messageHandler"/>-->
-    <!--<property name="port" value="${port}"/>-->
-    <!--<property name="poolSize" value="${poolSize}"/>-->
-
+    <!--<bean id="socketServer" class="track.spring.server.SocketServer">-->
+        <!--<property name="handler" ref="messageHandler"/>-->
+        <!--<property name="port" value="${port}"/>-->
+        <!--<property name="poolSize" value="${poolSize}"/>-->
     <!--</bean>-->
 
 
@@ -34,6 +32,6 @@
 
 
     <!--Автоматически сканировать в поисках @Component -->
-    <!--<context:component-scan base-package="track.spring.server" />-->
+    <context:component-scan base-package="track.spring.server" />
 
 </beans>
