@@ -22,7 +22,7 @@ public class JdbcExample {
         // Получение соединения с базой.
 
         // 1) Загружаем драйвер в наше приложение через ClassLoader
-        //Class.forName("org.sqlite.JDBC");
+//        Class.forName("org.sqlite.JDBC");
 
         // 2) База идентифицируется урлом, в случае SQLite - это путь к файлу в ФС
         Connection connection = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_DB);
@@ -44,7 +44,7 @@ public class JdbcExample {
                 // Column index starts with 1
                 Integer id = rs.getInt(1);          // 1 - ID
                 String name = rs.getString("name"); // 2 - name
-                Integer age = rs.getInt(3);         // 3 - age
+                Integer age = rs.getInt("age");     // 3 - age
 
                 System.out.println(String.format("ID: %d, name: %s, age: %d", id, name, age));
 

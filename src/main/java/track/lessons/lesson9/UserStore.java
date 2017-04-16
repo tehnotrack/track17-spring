@@ -10,8 +10,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.sun.istack.internal.NotNull;
-
 /**
  *
  */
@@ -27,11 +25,25 @@ public class UserStore {
         this.dbManager = dbManager;
     }
 
-    @NotNull
     public List<User> getUsers(int limit) throws SQLException {
 
-        List<User> users = new ArrayList<>();
         String query = "SELECT * FROM users LIMIT " + limit + ";";
+        QueryExecutor.execQuery(dbManager.getConnection(), query, rs -> {
+
+            List<User> users = new ArrayList<>();
+            while (rs.next()) {
+                long id = rs.getLong("id");
+                String name = rs.getString("name");
+                int age = rs.getInt("age");
+                users.add(new User(id, age, name));
+            }
+            return users;
+
+        });
+
+
+
+        List<User> users = new ArrayList<>();
         try (Statement stmt = dbManager.getConnection().createStatement()) {
             ResultSet rs = null;
             try {
@@ -57,6 +69,7 @@ public class UserStore {
 
         String query = "SELECT * FROM users LIMIT " + limit + ";";
         return QueryExecutor.execQuery(dbManager.getConnection(), query, rs -> {
+
             List<User> userList = new ArrayList<>();
             while (rs.next()) {
                 User user = new User();
@@ -66,6 +79,7 @@ public class UserStore {
                 userList.add(user);
             }
             return userList;
+
         });
     }
 
@@ -75,7 +89,7 @@ public class UserStore {
         try {
 
             stmt = dbManager.getConnection().prepareStatement(url);
-            stmt.setString(1, user.getName());
+            stmt.setObject(1, user.getName());
             stmt.setInt(2, user.getAge());
             stmt.setLong(3, id);
 
